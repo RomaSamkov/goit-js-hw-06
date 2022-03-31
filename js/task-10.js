@@ -9,10 +9,11 @@ const refs = {
   boxes: document.querySelector('#boxes'),
 };
 
-refs.createBtn.addEventListener('click', onCreateBoxes);
+refs.createBtn.addEventListener('click', createBoxes);
 refs.clearBtn.addEventListener('click', destroyBoxes);
 
-function createBoxes(amount) {
+function createBoxes() {
+  const amount = Number(refs.input.value);
   const allDivsElements = [];
   const step = 10;
   let size = 30;
@@ -22,15 +23,10 @@ function createBoxes(amount) {
     element.style.width = `${size}px`;
     element.style.height = `${size}px`;
     element.style.background = getRandomHexColor();
-
     size += step;
     allDivsElements.push(element);
   }
   return refs.boxes.append(...allDivsElements);
-};
-
-function onCreateBoxes() {
-  createBoxes(refs.input.value);
 };
 
 function destroyBoxes() {
