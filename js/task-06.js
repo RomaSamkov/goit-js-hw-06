@@ -1,8 +1,8 @@
-const ref = {
+const refs = {
     input: document.querySelector('#validation-input'),
 };
 
-ref.input.addEventListener('blur', (event) => {
+refs.input.addEventListener('blur', (event) => {
     if (event.currentTarget.value.length !== Number(event.currentTarget.dataset.length)) {
         event.currentTarget.classList.remove('valid');
         event.currentTarget.classList.add('invalid');
